@@ -80,7 +80,7 @@ class Program
             }
             else if (option == 4)
             {
-                Console.Write("What is the name of the Journal file");
+                Console.Write("What is the name of the Journal file ");
                 string nameOfFileUser = Console.ReadLine();
                 SaveJournal save1 = new SaveJournal();
                 save1.Save(nameOfFileUser, array);
