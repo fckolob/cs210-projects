@@ -28,7 +28,7 @@ class Program
             if (option == 1)
             {
                 
-                
+                //The entry is saved with the current date.
                 JournalPrompt journal1 = new JournalPrompt();
                 string prompted = journal1.RandomPrompt();
                 Console.WriteLine(prompted);
@@ -80,6 +80,7 @@ class Program
             }
             else if (option == 4)
             {
+                //The entries are saved to a file.
                 Console.Write("What is the name of the Journal file ");
                 string nameOfFileUser = Console.ReadLine();
                 SaveJournal save1 = new SaveJournal();
