@@ -46,6 +46,8 @@ class Program
                 reflecting2.DurationQuestion();
                 int durationSessionR2 = reflecting2.GetDuration();
                 reflecting2.GetReady();
+                
+                reflecting2.RunReflectionActivity(durationSessionR2);
                 reflecting2.WellDone();
                 
 

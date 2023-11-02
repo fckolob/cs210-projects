@@ -22,27 +22,11 @@ public class BreathingActivity : Activity
         while (DateTime.Now < endTime)
         {
             
-            Console.Write("Breath in...");
-
-            for (int index = 6; index > 0; index-- )
-            {
-                
-                Console.Write(index);
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
+            CountDown("Breath in...", 6);
 
             Console.WriteLine();
 
-            Console.Write("Now breath out...");
-
-            for (int index = 6; index > 0; index-- )
-            {
-                
-                Console.Write(index);
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
+            CountDown("Now breath out in...", 6);
 
             Console.WriteLine();
             Console.WriteLine();

@@ -6,9 +6,17 @@ public class Activity
     private int _duration;
     public Activity (string activity, int duration, string description){}
     public Activity (){}
-    public void DotsAppearingAnimation()
+    public void CountDown(string message, int seconds)
     {
+         Console.Write(message);
 
+            for (int index = seconds; index > 0; index-- )
+            {
+                
+                Console.Write(index);
+                Thread.Sleep(1000);
+                Console.Write("\b \b");
+            }
     }
     public void DurationQuestion(){
         Console.Write("How long, in seconds, would you like for your session? ");
@@ -18,17 +26,19 @@ public class Activity
     public void GetReady()
     {
         Console.WriteLine("Get ready...");
-        SpinnerAnimation();
+        SpinnerAnimation(10);
         Console.WriteLine();
         Console.WriteLine();
         
         
     }
     public void RunActivity()
+    
     {
+        
 
     }
-    public void SpinnerAnimation()
+    public void SpinnerAnimation(int durationSpinner)
     {
         List<string> animationStrings = new List<string>();
         animationStrings.Add("|");
@@ -41,7 +51,7 @@ public class Activity
         animationStrings.Add("\\");
 
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(10);
+        DateTime endTime = startTime.AddSeconds(durationSpinner);
 
         int i = 0;
         while (DateTime.Now < endTime)
@@ -70,9 +80,9 @@ public class Activity
     public void WellDone()
     {
         Console.WriteLine("Well done!!");
-        SpinnerAnimation();
+        SpinnerAnimation(10);
         Console.WriteLine($"You have completed {_duration} seconds of the {_activity} Activity");
-        SpinnerAnimation();
+        SpinnerAnimation(10);
         Console.Clear();
     }
     public int GetDuration()
