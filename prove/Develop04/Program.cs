@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        int userInput = 0;
+        int userInput = 1;
         while (userInput != 4)
         {
             Console.WriteLine("Menu Options:");
@@ -29,7 +29,7 @@ class Program
                int durationSession2 = breathing2.GetDuration();
                breathing2.GetReady();
                breathing2.BreathInBreathOut(durationSession2);
-               breathing2.WellDone();
+               breathing2.WellDone(1);
 
                
 
@@ -48,11 +48,36 @@ class Program
                 reflecting2.GetReady();
                 
                 reflecting2.RunReflectionActivity(durationSessionR2);
-                reflecting2.WellDone();
+                reflecting2.WellDone(1);
                 
 
             }
+            else if(userInput == 3)
+            {
+                ListingActivity listing1 = new ListingActivity();
+                string activityL = "Listing";
+                int durationSessionL = listing1.GetDuration();
+                string descriptionSessionL = listing1.GetDescription();
+                ListingActivity listing2 = new ListingActivity(activityL, durationSessionL, descriptionSessionL);
+                listing2.Welcome(descriptionSessionL);
+                listing2.DurationQuestion();
+                int durationSession2L = listing2.GetDuration();
+                listing2.GetReady();
+                listing2.RunListingActivity(durationSession2L);
+                int numberResponses = listing2.GetResponses();
+                listing2.WellDone(numberResponses);
+
+            }
+            else if (userInput != 4 && userInput != 3 && userInput != 2 && userInput != 1)
+            {
+                Console.WriteLine("This is not a valid option, please try again");
+            
+            }
+        Activity activity1 = new Activity();
+        Console.WriteLine("Thank you for use the mindfullnes program, until the next time");
+        activity1.SpinnerAnimation(3);
         }
+        
 
 
     }

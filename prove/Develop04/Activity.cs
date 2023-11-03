@@ -77,13 +77,20 @@ public class Activity
         
 
     }
-    public void WellDone()
+    public void WellDone(int listingCount)
     {
         Console.WriteLine("Well done!!");
         SpinnerAnimation(10);
-        Console.WriteLine($"You have completed {_duration} seconds of the {_activity} Activity");
-        SpinnerAnimation(10);
-        Console.Clear();
+        if (_activity == "Listing")
+        {
+            Console.WriteLine($"You have listed {listingCount} items");
+        }
+        else
+        {
+            Console.WriteLine($"You have completed {_duration} seconds of the {_activity} Activity");
+            SpinnerAnimation(10);
+            Console.Clear();
+        }
     }
     public int GetDuration()
     {
