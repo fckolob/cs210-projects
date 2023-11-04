@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 public class RelfectingActivity : Activity
 {
-    private string _descritpion = "This activity will help you to reflect on times in your life when you have shown strenght and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+    
     private List<string> _prompts = new List<string> {"---Think of a time when you stood ou for someone else.---", "---Think of a time when you did something really difficult.---", "---Think of a time when you helped someone in need.---", "---Think of a time when you did something truly selfless---."};
     
     private List<string> _questions = new List<string> {"Why was this experience meaningful to you?", "Have you ever done anything like this before?", "How did you get started?", "How did you feel when it was complete?", "What made this time different than other times when you were not as successful?", "What is your favorite thing about this experience?", "What could you learn from this experience that applies to other situations?", "What did you learn about yourself through this experience?", "How can you keep this experience in mind in the future?"};
     
 
-    private string _reflection;
-    public RelfectingActivity(string activity, int duration, string description) :base (activity, duration, description)
-    {
-        SetActivity(activity);
-
-    }
-    public RelfectingActivity(){}
-    public string GetDescription(){
-        return _descritpion;
-    }
+    
+    
+    public RelfectingActivity() : base("Reflecting", "This activity will help you to reflect on times in your life when you have shown strenght and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life." ){}
+    
     public void RandomPrompt()
     {
         Random random = new Random();
@@ -53,10 +47,10 @@ public class RelfectingActivity : Activity
         string question = _questions[randomIndexOneQ];
         _questions.RemoveAt(randomIndexOneQ);
         Console.Write(question);
-        SpinnerAnimation(1);
+        SpinnerAnimation(9);
         Console.WriteLine();
     }
-    public void RunReflectionActivity(int durationR)
+    public void RunReflectionActivity()
     {
         
 
@@ -66,10 +60,13 @@ public class RelfectingActivity : Activity
         int numberOfPrompts = _prompts.Count - 1;
         int tracker = 0;
         int promptTracker = 0;
+        Welcome();
+        DurationQuestion();
+        GetReady();
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(durationR);
+        DateTime endTime = startTime.AddSeconds(GetDuration());
 
-    
+       
         
         RandomPrompt();
         promptTracker += 1;
@@ -106,6 +103,7 @@ public class RelfectingActivity : Activity
                 tracker += 1;
             }
         }
+        WellDone(1);
     }
 
 }

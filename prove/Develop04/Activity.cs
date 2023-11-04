@@ -4,7 +4,12 @@ public class Activity
 {
     private string _activity;
     private int _duration;
-    public Activity (string activity, int duration, string description){}
+    private string _description;
+    public Activity (string activity,  string description)
+    {
+        _activity = activity;
+        _description = description;
+    }
     public Activity (){}
     public void CountDown(string message, int seconds)
     {
@@ -32,12 +37,7 @@ public class Activity
         
         
     }
-    public void RunActivity()
     
-    {
-        
-
-    }
     public void SpinnerAnimation(int durationSpinner)
     {
         List<string> animationStrings = new List<string>();
@@ -68,11 +68,11 @@ public class Activity
         }
         
     }
-    public void Welcome(string description)
+    public void Welcome()
     {
         Console.WriteLine($"Welcome to the {_activity} Activity");
         Console.WriteLine();
-        Console.WriteLine(description);
+        Console.WriteLine(_description);
         Console.WriteLine();
         
 
@@ -96,10 +96,7 @@ public class Activity
     {
         return _duration;
     }
-    public void SetActivity(string activity)
-    {
-        _activity = activity;
-    }
-
+    
+    
 
 }

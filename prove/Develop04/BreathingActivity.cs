@@ -1,22 +1,19 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 public class BreathingActivity : Activity
 {
-    private string _description ="This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
     
-    public BreathingActivity(string activity, int duration, string description)
-    : base (activity, duration, description)
-    {
-        SetActivity(activity);
+    
+    public BreathingActivity() : base ("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing." ){}
 
-    }
-    public BreathingActivity(){}
+    
 
-    public void BreathInBreathOut(int durationB)
+    public void BreathInBreathOut()
     {
         
         
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(durationB);
+        DateTime endTime = startTime.AddSeconds(GetDuration());
 
     
         while (DateTime.Now < endTime)
@@ -32,12 +29,20 @@ public class BreathingActivity : Activity
             Console.WriteLine();
 
         }
+        
 
 
 
     }
-    public string GetDescription(){
-        return _description;
+    public void RunBreathingActivity()
+    {
+        
+        Welcome();
+        DurationQuestion();
+        GetReady();
+        BreathInBreathOut();
+        WellDone(1);
+
     }
 
 
