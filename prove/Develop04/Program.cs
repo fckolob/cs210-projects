@@ -16,7 +16,8 @@ class Program
             Console.WriteLine("4. Quit");
             Console.Write("Select a choice from the menu: ");
             string stringUserInput = Console.ReadLine();
-            userInput = int.Parse(stringUserInput);
+            int.TryParse(stringUserInput, out userInput);
+            
             if (userInput == 1)
             {
                BreathingActivity breathing1 = new BreathingActivity();
@@ -43,11 +44,15 @@ class Program
             else if (userInput != 4 && userInput != 3 && userInput != 2 && userInput != 1)
             {
                 Console.WriteLine("This is not a valid option, please try again");
+                Thread.Sleep(2000);
+                Console.Clear();
             
             }
+        
            
         }
         Activity activity1 = new Activity();
+        Console.Clear();
         Console.WriteLine("Thank you for use the mindfullnes program, until the next time");
         activity1.SpinnerAnimation(3);
         

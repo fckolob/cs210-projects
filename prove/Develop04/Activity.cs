@@ -13,7 +13,7 @@ public class Activity
     public Activity (){}
     public void CountDown(string message, int seconds)
     {
-         Console.Write(message);
+        Console.Write(message);
 
             for (int index = seconds; index > 0; index-- )
             {
@@ -22,6 +22,8 @@ public class Activity
                 Thread.Sleep(1000);
                 Console.Write("\b \b");
             }
+        Console.Clear();
+
     }
     public void DurationQuestion(){
         Console.Write("How long, in seconds, would you like for your session? ");
@@ -30,6 +32,7 @@ public class Activity
     }
     public void GetReady()
     {
+        Console.Clear();
         Console.WriteLine("Get ready...");
         SpinnerAnimation(10);
         Console.WriteLine();
@@ -70,6 +73,7 @@ public class Activity
     }
     public void Welcome()
     {
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_activity} Activity");
         Console.WriteLine();
         Console.WriteLine(_description);
@@ -79,11 +83,14 @@ public class Activity
     }
     public void WellDone(int listingCount)
     {
+        Console.Clear();
         Console.WriteLine("Well done!!");
         SpinnerAnimation(10);
         if (_activity == "Listing")
         {
             Console.WriteLine($"You have listed {listingCount} items");
+            SpinnerAnimation(10);
+            Console.Clear();
         }
         else
         {

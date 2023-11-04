@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 public class RelfectingActivity : Activity
 {
     
-    private List<string> _prompts = new List<string> {"---Think of a time when you stood ou for someone else.---", "---Think of a time when you did something really difficult.---", "---Think of a time when you helped someone in need.---", "---Think of a time when you did something truly selfless---."};
+    private List<string> _prompts = new List<string> {"---Think of a time when you stood ou for someone else---", "---Think of a time when you did something really difficult---", "---Think of a time when you helped someone in need---", "---Think of a time when you did something truly selfless---"};
     
     private List<string> _questions = new List<string> {"Why was this experience meaningful to you?", "Have you ever done anything like this before?", "How did you get started?", "How did you feel when it was complete?", "What made this time different than other times when you were not as successful?", "What is your favorite thing about this experience?", "What could you learn from this experience that applies to other situations?", "What did you learn about yourself through this experience?", "How can you keep this experience in mind in the future?"};
     
@@ -15,6 +15,7 @@ public class RelfectingActivity : Activity
     
     public void RandomPrompt()
     {
+        Console.Clear();
         Random random = new Random();
         int randomIndexOne = random.Next(0, _prompts.Count);
         string prompt = _prompts[randomIndexOne];
@@ -42,17 +43,18 @@ public class RelfectingActivity : Activity
     }
     public void RandomQuestion()
     {
+        Console.Clear();
         Random random = new Random();
         int randomIndexOneQ = random.Next(0, _questions.Count);
         string question = _questions[randomIndexOneQ];
         _questions.RemoveAt(randomIndexOneQ);
         Console.Write(question);
         SpinnerAnimation(9);
-        Console.WriteLine();
+        Console.Clear();
     }
     public void RunReflectionActivity()
     {
-        
+        //A backup list is created and populate with the elements of the original list for restart the original list after showing all the prompts in a random order, because when a random element is picked by the RandomPrompt method from the original list, this item is removed from the original list to avoid repetition.
 
         List<string> questions2 = _questions.GetRange(0, _questions.Count);
         List<string> prompts2 = _prompts.GetRange(0, _prompts.Count);
@@ -72,6 +74,9 @@ public class RelfectingActivity : Activity
         promptTracker += 1;
 
         ShowQuestions();
+
+        //When all the questions are showed a new prompt is showed and then all the questions in a random order avoiding repetition.
+        //The conditional structures and the trackers trigger the repopulate of the original list with the elements of the backup list.
         while (DateTime.Now < endTime)
         {
             if (promptTracker <= numberOfPrompts)

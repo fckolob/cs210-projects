@@ -16,7 +16,7 @@ public class ListingActivity : Activity
         Console.WriteLine("List as many responses You can to the following prompt:");
         Console.WriteLine();
         Console.WriteLine(prompt);
-        _prompts.RemoveAt(randomIndexOne);
+        
         Console.WriteLine();
         CountDown("You may begin in...", 5);
         Console.WriteLine();
@@ -27,6 +27,7 @@ public class ListingActivity : Activity
     {
         string userResponse = Console.ReadLine();
         _userResponses.Add(userResponse);
+        Console.Clear();
 
     }
     public int GetResponses()
