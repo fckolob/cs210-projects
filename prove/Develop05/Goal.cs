@@ -1,4 +1,4 @@
-public abstract class Goal
+public  class Goal
 {
     private string _goalName = "";
     private string _goalDescription = ""; 
@@ -24,10 +24,40 @@ public abstract class Goal
     {
         _goalPoints = goalPoints;
     }
-    public abstract void CreateNewGoal();
+    public virtual void CreateNewGoal()
+    {
+        Console.Clear();
+        Console.WriteLine("What is the name of your goal?");
+        string goalNameSet = Console.ReadLine();
+        SetGoalName(goalNameSet);
+        Console.WriteLine("What is a short description of it?");
+        string goalDescriptionSet = Console.ReadLine();
+        SetGoalDescription(goalDescriptionSet);
+        Console.WriteLine("What is the amount of points associated with this goal?");
+        int goalPointsTry = 0;
+        string goalPointsString = Console.ReadLine();
+        
+        int.TryParse(goalPointsString, out goalPointsTry);
+        while (goalPointsTry == 0 || goalPointsTry < 0)
+        {
+            Console.WriteLine("This is not a valid amount of points");
+            Console.WriteLine("It should be a positive integer");
+
+            Console.WriteLine("Please try again");
+            Thread.Sleep(2000);
+            Console.Clear();
+            Console.WriteLine("What is the amount of points associated with this goal?");
+            goalPointsString = Console.ReadLine();
+            int.TryParse(goalPointsString, out goalPointsTry);
+        }
+        int goalPointsSet = goalPointsTry;
+        SetGoalPoints(goalPointsSet);
+
+        
+    }
     public void SaveGoals(string filename)
     {
-
+        
     }
     public void ShowScore()
     {
@@ -41,37 +71,5 @@ public abstract class Goal
     {
 
     }
-    public void ShowGoalsKinds()
-    {
-        int userInputGoalInt = 1;
-        while (userInputGoalInt != -12345)
-        {
-            Console.WriteLine("What kind of goal do you want to create?");
-            Console.WriteLine("1. Simple goal");
-            Console.WriteLine("2. Check list goal");
-            Console.WriteLine("3. Eternal goal");
-            Console.Write("Select a choice from the menu: ");
-            string userInputGoalString = Console.ReadLine();
-            int.TryParse(userInputGoalString, out userInputGoalInt);
-            if(userInputGoalInt == 1)
-            {
-
-                userInputGoalInt = -12345;
-            }
-            else if (userInputGoalInt == 2)
-            {
-                userInputGoalInt = -12345;
-            }
-            else if (userInputGoalInt == 3)
-            {
-                userInputGoalInt = -12345;
-            }
-            else if (userInputGoalInt != 1 && userInputGoalInt != 2 && userInputGoalInt != 3 && userInputGoalInt != -12345)
-            {
-                Console.WriteLine("This is not a valid option, please try again");
-                Thread.Sleep(2000);
-                Console.Clear();
-            }
-        }
-    }
+   
 }
