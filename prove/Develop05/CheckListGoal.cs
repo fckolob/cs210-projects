@@ -10,9 +10,55 @@ public class CheckListGoal : Goal
     {
         _goalBonus = goalBonus;
     }
-    public override void CreateNewGoal()
+    public override void StoreGoals(int indexGoal, string[] array, string[] arrayToShow, int check)
     {
-        base.CreateNewGoal();
+        string goalToShow = "";
+        string goalToStore = "";
+        if(GetAccomplished())
+        {
+            goalToShow = $"{indexGoal}. [X] {GetGoalName()}: Description: {GetGoalDescription()} Points:{GetGoalPoints()} --Currently completed {_goalTimes}/{_goalTimes}";
+
+        }
+        else
+        {
+            goalToShow = $"{indexGoal}. [] {GetGoalName()}: Description: {GetGoalDescription()} Points:{GetGoalPoints()} --Currently completed {check}/{_goalTimes}";
+
+        }
+        
+    
+        goalToStore = $"{indexGoal},{GetGoalName()}:{GetGoalDescription()},{GetGoalPoints()}, {GetAccomplished()}";
+          
+        arrayToShow = arrayToShow.Append(goalToShow).ToArray();
+        array = array.Append(goalToStore).ToArray();
+    }
+    public override void CreateNewGoal(int indexGoal, string[] array, string[] arrayToShow)
+    {
+        Console.Clear();
+        Console.WriteLine("What is the name of your goal?");
+        string goalNameSet = Console.ReadLine();
+        SetGoalName(goalNameSet);
+        Console.WriteLine("What is a short description of it?");
+        string goalDescriptionSet = Console.ReadLine();
+        SetGoalDescription(goalDescriptionSet);
+        Console.WriteLine("What is the amount of points associated with this goal?");
+        int goalPointsTry = 0;
+        string goalPointsString = Console.ReadLine();
+        
+        int.TryParse(goalPointsString, out goalPointsTry);
+        while (goalPointsTry == 0 || goalPointsTry < 0)
+        {
+            Console.WriteLine("This is not a valid amount of points");
+            Console.WriteLine("It should be a positive integer");
+
+            Console.WriteLine("Please try again");
+            Thread.Sleep(2000);
+            Console.Clear();
+            Console.WriteLine("What is the amount of points associated with this goal?");
+            goalPointsString = Console.ReadLine();
+            int.TryParse(goalPointsString, out goalPointsTry);
+        }
+        int goalPointsSet = goalPointsTry;
+        SetGoalPoints(goalPointsSet);
         Console.WriteLine("How many times this should be accomplished for a bonus?");
         string goalTimesString = Console.ReadLine();
         int goalTimesTry = 0;
@@ -50,6 +96,7 @@ public class CheckListGoal : Goal
         }
         int goalBonusSet = goalBonusTry;
         SetGoalBonus(goalBonusSet);
+        StoreGoals(indexGoal ,array, arrayToShow, 0);
 
     }
 }

@@ -3,6 +3,11 @@ public  class Goal
     private string _goalName = "";
     private string _goalDescription = ""; 
     private int _goalPoints = 0;
+    private bool _accomplished;
+    public bool GetAccomplished()
+    {
+        return _accomplished;
+    }
 
     public string GetGoalName()
     {
@@ -11,6 +16,10 @@ public  class Goal
     public string GetGoalDescription()
     {
         return _goalDescription;
+    }
+    public int GetGoalPoints()
+    {
+        return _goalPoints;
     }
     public void SetGoalName(string goalName)
     {
@@ -24,7 +33,28 @@ public  class Goal
     {
         _goalPoints = goalPoints;
     }
-    public virtual void CreateNewGoal()
+    public virtual void StoreGoals(int indexGoal, string[] array, string[]arrayToShow, int check)
+    {
+        string goalToShow = "";
+        string goalToStore = "";
+        indexGoal += 1;
+        if(_accomplished)
+        {
+            goalToShow = $"{indexGoal}. [X] {_goalName}: Description: ({_goalDescription}) Points:{_goalPoints}";
+
+        }
+        else
+        {
+            goalToShow = $"{indexGoal}. [] {_goalName}: Description: ({_goalDescription}) Points:{_goalPoints}";
+        }
+        
+    
+        goalToStore = $"{indexGoal},{_goalName}:{_goalDescription},{_goalPoints}, {_accomplished}";
+          
+        arrayToShow = arrayToShow.Append(goalToShow).ToArray();
+        array = array.Append(goalToStore).ToArray();
+    }
+    public virtual void CreateNewGoal(int indexGoal, string[] array, string[] arrayToshow)
     {
         Console.Clear();
         Console.WriteLine("What is the name of your goal?");
@@ -52,24 +82,72 @@ public  class Goal
         }
         int goalPointsSet = goalPointsTry;
         SetGoalPoints(goalPointsSet);
+        StoreGoals(indexGoal, array, arrayToshow, 1);
 
         
     }
-    public void SaveGoals(string filename)
+    public void SaveGoals(int score, string[] array)
     {
+        string fileName;
+        Console.WriteLine("What is the name of the file?");
+        fileName = Console.ReadLine();
+         using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                outputFile.WriteLine(score);
+                foreach (string line in array)
+                {
+                    outputFile.WriteLine(line);
+                }
+            }
         
     }
-    public void ShowScore()
+    
+    public void SetScore(int score, int points)
     {
-
+        score = score + points;
     }
-    public void LoadGoals(string filename)
+    public void ShowScore(int score)
     {
+        Console.WriteLine();
+        Console.WriteLine($"You have {score} points.");
+        Console.WriteLine();
+    }
+    public void LoadGoals()
+    {
+        string fileName;
+        Console.WriteLine("What is the file name?");
+        fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        foreach (string line in lines)
+        {
+            string [] lineParts = line.Split(":");
+            string indexAndName = lineParts[0];
+            string content = lineParts[1];
+            string [] indexAndNameParts = indexAndName.Split(",");
+            string stringIndex = indexAndNameParts[0];
+            int index = int.Parse(stringIndex);
+            string name = indexAndNameParts[1];
+            string [] contentParts = content.Split(",");
+            string description = contentParts[0];
+            string stringPoints = contentParts[1];
+            string accomplished = contentParts[2];
+            int points = int.Parse(stringPoints);
 
+            string lineToShow = $"";
+
+            Console.WriteLine(lineToShow);
+        }
     }
     public void RecordEvent()
     {
 
+    }
+    public void ListGoals(string[] arrayToShow)
+    {
+        foreach (string goal in arrayToShow)
+        {
+            Console.WriteLine(goal);
+        }
     }
    
 }

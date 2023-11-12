@@ -6,6 +6,10 @@ class Program
     static void Main(string[] args)
 
     {
+        string [] array = new string[]{};
+        string [] arrayToShow = new string[]{};
+        int score = 0;
+        int indexGoal = 0;
 
         void ShowGoalsKinds()
         {
@@ -22,19 +26,19 @@ class Program
                 if(userInputGoalInt == 1)
                 {
                     SimpleGoal simple1 = new SimpleGoal();
-                    simple1.CreateNewGoal();
+                    simple1.CreateNewGoal(indexGoal, array, arrayToShow);
                     userInputGoalInt = -12345;
                 }
                 else if (userInputGoalInt == 2)
                 {
                     EternalGoal eternal1 = new EternalGoal();
-                    eternal1.CreateNewGoal();
+                    eternal1.CreateNewGoal(indexGoal, array, arrayToShow);
                     userInputGoalInt = -12345;
                 }
                 else if (userInputGoalInt == 3)
                 {
                     CheckListGoal checkList1 = new CheckListGoal();
-                    checkList1.CreateNewGoal();
+                    checkList1.CreateNewGoal(indexGoal, array, arrayToShow);
                     userInputGoalInt = -12345;
                 }
                 else if (userInputGoalInt != 1 && userInputGoalInt != 2 && userInputGoalInt != 3 && userInputGoalInt != -12345)
@@ -60,10 +64,13 @@ class Program
             Console.Write("Select a choice from the menu: ");
             string stringUserInput = Console.ReadLine();
             int.TryParse(stringUserInput, out userInput);
+            Goal goal1 = new Goal();
+            goal1.ShowScore(score);
             
             if (userInput == 1)
             {
-               ShowGoalsKinds();
+                
+                ShowGoalsKinds();
 
                
 
@@ -72,16 +79,16 @@ class Program
             else if (userInput == 2)
             {
                 
-                
+                goal1.ListGoals(arrayToShow);
 
             }
             else if(userInput == 3)
             {
-                
+                goal1.SaveGoals(score, array);
             }
             else if (userInput == 4)
             {
-
+                goal1.LoadGoals();
             }
             else if (userInput == 5)
             {
