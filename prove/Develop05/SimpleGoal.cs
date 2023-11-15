@@ -1,10 +1,9 @@
-public class SimpleGoal : Goal
+public class SimpleGoal : CompletableGoal
 {
-    
-    public override void CreateNewGoal(int indexGoal, string[] array, string[] arrayToShow)
-    {
-        base.CreateNewGoal(indexGoal, array, arrayToShow);
-
+    public SimpleGoal(string name, string description, int points) : base (name, description, points){}
+    public SimpleGoal (string savedString) : base(savedString){}
+    //public int RecordEvent()
+   // {
         
-    }
+    //}
 }

@@ -1,7 +1,5 @@
 public class EternalGoal : Goal
 {
-    public override void CreateNewGoal(int indexGoal, string[] array, string[] arrayToShow)
-    {
-        base.CreateNewGoal(indexGoal, array, arrayToShow);
-    }
+    public EternalGoal(string name, string description, int points) : base(name, description, points){}
+    public EternalGoal(string savedString) : base (savedString){}
 }

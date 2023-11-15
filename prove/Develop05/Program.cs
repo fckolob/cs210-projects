@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.IO;
 
 class Program
@@ -6,10 +7,8 @@ class Program
     static void Main(string[] args)
 
     {
-        string [] array = new string[]{};
-        string [] arrayToShow = new string[]{};
         int score = 0;
-        int indexGoal = 0;
+        List<Goal> goals  = new List<Goal>();
 
         void ShowGoalsKinds()
         {
@@ -25,21 +24,126 @@ class Program
                 int.TryParse(userInputGoalString, out userInputGoalInt);
                 if(userInputGoalInt == 1)
                 {
-                    SimpleGoal simple1 = new SimpleGoal();
-                    simple1.CreateNewGoal(indexGoal, array, arrayToShow);
+                    Console.WriteLine("What is the name or your goal?");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("What is a short description of it?");
+                    string description = Console.ReadLine();
+                    Console.WriteLine("What is the amount of points associated with this goal");
+                    int goalPointsTry = 0;
+                    string goalPointsString = Console.ReadLine();
+        
+                    int.TryParse(goalPointsString, out goalPointsTry);
+                    while (goalPointsTry == 0 || goalPointsTry < 0)
+                    {
+                        Console.WriteLine("This is not a valid amount of points");
+                        Console.WriteLine("It should be a positive integer");
+
+                        Console.WriteLine("Please try again");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        Console.WriteLine("What is the amount of points associated with this goal?");
+                        goalPointsString = Console.ReadLine();
+                        int.TryParse(goalPointsString, out goalPointsTry);
+                    }
+                    int goalPointsSet = goalPointsTry;
+                    
+                    SimpleGoal simple1 = new SimpleGoal(name, description, goalPointsSet);
+                    goals.Add(simple1);
                     userInputGoalInt = -12345;
                 }
                 else if (userInputGoalInt == 2)
                 {
-                    EternalGoal eternal1 = new EternalGoal();
-                    eternal1.CreateNewGoal(indexGoal, array, arrayToShow);
+                    Console.WriteLine("What is the name or your goal?");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("What is a short description of it?");
+                    string description = Console.ReadLine();
+                    Console.WriteLine("What is the amount of points associated with this goal");
+                    int goalPointsTry = 0;
+                    string goalPointsString = Console.ReadLine();
+        
+                    int.TryParse(goalPointsString, out goalPointsTry);
+                    while (goalPointsTry == 0 || goalPointsTry < 0)
+                    {
+                        Console.WriteLine("This is not a valid amount of points");
+                        Console.WriteLine("It should be a positive integer");
+
+                        Console.WriteLine("Please try again");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        Console.WriteLine("What is the amount of points associated with this goal?");
+                        goalPointsString = Console.ReadLine();
+                        int.TryParse(goalPointsString, out goalPointsTry);
+                    }
+                    int goalPointsSet = goalPointsTry;
+                    
+                    EternalGoal eternal1 = new EternalGoal(name, description, goalPointsSet);
+                    goals.Add(eternal1);
                     userInputGoalInt = -12345;
                 }
                 else if (userInputGoalInt == 3)
                 {
-                    CheckListGoal checkList1 = new CheckListGoal();
-                    checkList1.CreateNewGoal(indexGoal, array, arrayToShow);
+                    Console.WriteLine("What is the name or your goal?");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("What is a short description of it?");
+                    string description = Console.ReadLine();
+                    Console.WriteLine("What is the amount of points associated with this goal");
+                    int goalPointsTry = 0;
+                    string goalPointsString = Console.ReadLine();
+        
+                    int.TryParse(goalPointsString, out goalPointsTry);
+                    while (goalPointsTry == 0 || goalPointsTry < 0)
+                    {
+                        Console.WriteLine("This is not a valid amount of points");
+                        Console.WriteLine("It should be a positive integer");
+
+                        Console.WriteLine("Please try again");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        Console.WriteLine("What is the amount of points associated with this goal?");
+                        goalPointsString = Console.ReadLine();
+                        int.TryParse(goalPointsString, out goalPointsTry);
+                    }
+                    int goalPointsSet = goalPointsTry;
+                    
+                    Console.WriteLine("How many times this goal should be accomplished for a bonus?");
+                    string stringTimesToComplete = Console.ReadLine();
+                    int timesToCompleteTry = 0;
+                    int.TryParse(stringTimesToComplete, out timesToCompleteTry);
+                    while (timesToCompleteTry == 0 || timesToCompleteTry < 0)
+                    {
+                        Console.WriteLine("This is not a valid amount of times to be accomplished");
+                        Console.WriteLine("It should be a positive integer");
+
+                        Console.WriteLine("Please try again");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        Console.WriteLine("How many times this goal should be accomplished for a bonus?");
+                        stringTimesToComplete = Console.ReadLine();
+                        int.TryParse(stringTimesToComplete, out timesToCompleteTry);
+                    }
+                    int timesToCompleteSet = timesToCompleteTry;
+
+                    Console.WriteLine("What is the bonus amount for accomplishing it that many times?");
+                    string stringBonusAmount = Console.ReadLine();
+                    int bounsAmountTry = 0;
+                    int.TryParse(stringBonusAmount, out bounsAmountTry);
+                    while (bounsAmountTry == 0 || bounsAmountTry < 0)
+                    {
+                        Console.WriteLine("This is not a valid amount of points");
+                        Console.WriteLine("It should be a positive integer");
+
+                        Console.WriteLine("Please try again");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        Console.WriteLine("What is the bonus for accomplishing it that many times?");
+                        stringBonusAmount = Console.ReadLine();
+                        int.TryParse(stringBonusAmount, out bounsAmountTry);
+                    }
+                    int bonusAmountSet = bounsAmountTry;
+                    CheckListGoal check1 = new CheckListGoal(name, description, goalPointsSet, timesToCompleteSet, bonusAmountSet);
+                    goals.Add(check1);
                     userInputGoalInt = -12345;
+
                 }
                 else if (userInputGoalInt != 1 && userInputGoalInt != 2 && userInputGoalInt != 3 && userInputGoalInt != -12345)
                 {
@@ -55,6 +159,8 @@ class Program
         int userInput = 1;
         while (userInput != 6)
         {
+            Console.WriteLine($"You have {score} points.");
+            Console.WriteLine();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
@@ -64,8 +170,8 @@ class Program
             Console.Write("Select a choice from the menu: ");
             string stringUserInput = Console.ReadLine();
             int.TryParse(stringUserInput, out userInput);
-            Goal goal1 = new Goal();
-            goal1.ShowScore(score);
+            
+
             
             if (userInput == 1)
             {
@@ -78,21 +184,46 @@ class Program
 
             else if (userInput == 2)
             {
+                int indexToShow = 0;
                 
-                goal1.ListGoals(arrayToShow);
-
+                foreach (Goal goal in goals)
+                {
+                    indexToShow += 1;
+                    Console.WriteLine($"{indexToShow}.{goal.ToString()}");
+                }
             }
             else if(userInput == 3)
             {
-                goal1.SaveGoals(score, array);
+                
             }
             else if (userInput == 4)
             {
-                goal1.LoadGoals();
+            
             }
             else if (userInput == 5)
             {
-
+                int indexToShow = 0;
+                Console.WriteLine("The goals are:");
+                Console.WriteLine();
+                
+                foreach (Goal goal in goals)
+                {
+                    indexToShow += 1;
+                    Console.WriteLine($"{indexToShow}.{goal.GetName()}");
+                }
+                Console.WriteLine("Wich goal did you accomplished?");
+                int accomplished = int.Parse(Console.ReadLine());
+                indexToShow = 0;
+                foreach (Goal goal in goals)
+                {
+                    indexToShow += 1;
+                    if (indexToShow == accomplished)
+                    {
+                        goal.RecordEvent();
+                        score += goal.RecordEvent();
+                    }
+                    
+                }
             }
             
             else if (userInput != 6 && userInput != 5 && userInput != 4 && userInput != 3 && userInput != 2 && userInput != 1)
