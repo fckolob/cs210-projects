@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using System.Collections.Generic;
 
 class Program
 {
@@ -194,11 +195,64 @@ class Program
             }
             else if(userInput == 3)
             {
-                
+                Console.WriteLine("What is the filename for the goals file");
+                string fileName = Console.ReadLine();
+                using (StreamWriter outputFile = new StreamWriter(fileName))
+                {
+                    outputFile.WriteLine(score);
+                    foreach (Goal goal in goals)
+                    {
+                        outputFile.WriteLine(goal.ToSavedString());
+                    }
+                }
             }
             else if (userInput == 4)
             {
-            
+                int track = 0;
+                goals.Clear();
+                Console.WriteLine("What is the filename for the goals file");
+                string fileName = Console.ReadLine();
+                string[] lines = System.IO.File.ReadAllLines(fileName);
+                foreach (string line in lines)
+                {
+                    track += 1;
+                    if (track == 1)
+                    {
+                        score = int.Parse(line);
+                    }
+                    else
+                    {
+                        string [] lineParts = line.Split(":");
+                        string goalType= lineParts[0];
+                        string content = lineParts[1];
+                        if (goalType == "SimpleGoal")
+                        {
+                            SimpleGoal simple1 = new SimpleGoal(content);
+                            goals.Add(simple1);
+                        
+                        }
+                        else if(goalType == "EternalGoal")
+                        {
+                            EternalGoal eternal1 = new EternalGoal(content);
+                            goals.Add(eternal1);
+                        }
+                        else if(goalType == "CheckListGoal")
+                        {
+                            CheckListGoal check1 = new CheckListGoal(content);
+                            goals.Add(check1);
+                        }
+
+                        int indexToShow = 0;
+                
+                        foreach (Goal goal in goals)
+                        {
+                            indexToShow += 1;
+                            Console.WriteLine($"{indexToShow}.{goal.ToString()}");
+                        }
+                    }
+
+                    
+                }
             }
             else if (userInput == 5)
             {
@@ -219,7 +273,7 @@ class Program
                     indexToShow += 1;
                     if (indexToShow == accomplished)
                     {
-                        goal.RecordEvent();
+                        
                         score += goal.RecordEvent();
                     }
                     

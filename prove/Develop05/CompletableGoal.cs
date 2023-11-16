@@ -1,6 +1,6 @@
 public abstract class CompletableGoal : Goal
 {
-    private bool _isComplete;
+    protected bool _isComplete;
     public CompletableGoal(string name, string description, int points) : base (name, description, points){}
     public CompletableGoal(string savedString) : base(savedString){}
     public void SetIsComplete(bool isComplete)
@@ -25,5 +25,9 @@ public abstract class CompletableGoal : Goal
         SetIsComplete(true);
         return _points;
         
+    }
+    public override string ToSavedString()
+    {
+        return $"{this}:{_name},{_description},{_points}{_isComplete}";
     }
 }

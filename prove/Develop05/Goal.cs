@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 public abstract class Goal
 {
     protected string _name = "";
@@ -11,7 +13,16 @@ public abstract class Goal
         _description = description;
         _points = points;
     }
-    public Goal (string savedString){}
+    public Goal (string savedString)
+    {
+        string [] contentParts = savedString.Split(",");
+        _name = contentParts[0];
+        _description = contentParts[1];
+        string stringPoints = contentParts[2];
+        
+        _points = int.Parse(stringPoints);
+        
+    }
     public string GetName()
     {
         return _name;
@@ -21,10 +32,11 @@ public abstract class Goal
         return _points;
     }
     
-    //public virtual string ToSavedString()   
-    //{
-
-    //}
+    public virtual string ToSavedString()
+    {
+        return $"{this}:{_name},{_description},{_points}";
+    }  
+    
     public override string ToString()
     {
         return $"[]. {_name} ({_description})";
