@@ -1,0 +1,5 @@
+345
+EternalGoal:d,f,34
+SimpleGoal:d,h,56,False
+CheckListGoal:df,gh,345,678,6,1
+SimpleGoal:g,k,324,False

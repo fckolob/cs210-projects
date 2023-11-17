@@ -1,0 +1,4 @@
+0
+SimpleGoal:kick,kicking,88,False
+EternalGoal:read,reading,33
+CheckListGoal:attend,attednding,77,800,4,0

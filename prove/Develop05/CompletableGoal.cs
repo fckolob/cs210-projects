@@ -28,6 +28,6 @@ public abstract class CompletableGoal : Goal
     }
     public override string ToSavedString()
     {
-        return $"{this}:{_name},{_description},{_points}{_isComplete}";
+        return $"{this.GetType()}:{_name},{_description},{_points.ToString()},{_isComplete.ToString()}";
     }
 }

@@ -34,7 +34,7 @@ public abstract class Goal
     
     public virtual string ToSavedString()
     {
-        return $"{this}:{_name},{_description},{_points}";
+        return $"{this.GetType()}:{_name},{_description},{_points.ToString()}";
     }  
     
     public override string ToString()

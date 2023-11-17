@@ -168,6 +168,7 @@ class Program
             Console.WriteLine("3. Save Goals");
             Console.WriteLine("4. Load Goals");
             Console.WriteLine("5. Record Event");
+            Console.WriteLine("6. Quit");
             Console.Write("Select a choice from the menu: ");
             string stringUserInput = Console.ReadLine();
             int.TryParse(stringUserInput, out userInput);
@@ -219,9 +220,12 @@ class Program
                     if (track == 1)
                     {
                         score = int.Parse(line);
+                        
                     }
                     else
                     {
+                    
+                    
                         string [] lineParts = line.Split(":");
                         string goalType= lineParts[0];
                         string content = lineParts[1];
@@ -241,18 +245,21 @@ class Program
                             CheckListGoal check1 = new CheckListGoal(content);
                             goals.Add(check1);
                         }
-
-                        int indexToShow = 0;
-                
-                        foreach (Goal goal in goals)
-                        {
-                            indexToShow += 1;
-                            Console.WriteLine($"{indexToShow}.{goal.ToString()}");
                         }
-                    }
+                        
+
+                        
+                    
 
                     
                 }
+                int indexToShow = 0;
+                
+                    foreach (Goal goal in goals)
+                    {
+                        indexToShow += 1;
+                        Console.WriteLine($"{indexToShow}.{goal.ToString()}");
+                    }
             }
             else if (userInput == 5)
             {
