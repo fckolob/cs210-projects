@@ -276,6 +276,8 @@ class Program
                         indexToShow += 1;
                         Console.WriteLine($"{indexToShow}.{goal.ToString()}");
                     }
+                Console.WriteLine("Press enter for go to the menu");
+                Console.ReadLine();
             }
             else if (userInput == 5)
             {
