@@ -21,8 +21,9 @@ public abstract class CompletableGoal : Goal
     }
     public override int RecordEvent()
     {
-        base.RecordEvent();
+        
         SetIsComplete(true);
+        Console.WriteLine($"Congratulations, you earned {_points} points!!!");
         return _points;
         
     }

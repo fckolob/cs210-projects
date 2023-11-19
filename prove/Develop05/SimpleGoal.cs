@@ -11,8 +11,5 @@ public class SimpleGoal : CompletableGoal
         _points = int.Parse(stringPoints);
         _isComplete = bool.Parse(isComplete);
     }
-    //public int RecordEvent()
-   // {
-        
-    //}
+    
 }

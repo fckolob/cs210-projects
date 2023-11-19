@@ -16,6 +16,7 @@ class Program
             int userInputGoalInt = 1;
             while (userInputGoalInt != -12345)
             {
+                Console.Clear();
                 Console.WriteLine("What kind of goal do you want to create?");
                 Console.WriteLine("1. Simple goal");
                 Console.WriteLine("2. Eternal goal");
@@ -27,8 +28,10 @@ class Program
                 {
                     Console.WriteLine("What is the name or your goal?");
                     string name = Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("What is a short description of it?");
                     string description = Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("What is the amount of points associated with this goal");
                     int goalPointsTry = 0;
                     string goalPointsString = Console.ReadLine();
@@ -36,6 +39,7 @@ class Program
                     int.TryParse(goalPointsString, out goalPointsTry);
                     while (goalPointsTry == 0 || goalPointsTry < 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("This is not a valid amount of points");
                         Console.WriteLine("It should be a positive integer");
 
@@ -56,8 +60,10 @@ class Program
                 {
                     Console.WriteLine("What is the name or your goal?");
                     string name = Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("What is a short description of it?");
                     string description = Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("What is the amount of points associated with this goal");
                     int goalPointsTry = 0;
                     string goalPointsString = Console.ReadLine();
@@ -65,6 +71,7 @@ class Program
                     int.TryParse(goalPointsString, out goalPointsTry);
                     while (goalPointsTry == 0 || goalPointsTry < 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("This is not a valid amount of points");
                         Console.WriteLine("It should be a positive integer");
 
@@ -85,8 +92,10 @@ class Program
                 {
                     Console.WriteLine("What is the name or your goal?");
                     string name = Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("What is a short description of it?");
                     string description = Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("What is the amount of points associated with this goal");
                     int goalPointsTry = 0;
                     string goalPointsString = Console.ReadLine();
@@ -94,6 +103,7 @@ class Program
                     int.TryParse(goalPointsString, out goalPointsTry);
                     while (goalPointsTry == 0 || goalPointsTry < 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("This is not a valid amount of points");
                         Console.WriteLine("It should be a positive integer");
 
@@ -112,6 +122,7 @@ class Program
                     int.TryParse(stringTimesToComplete, out timesToCompleteTry);
                     while (timesToCompleteTry == 0 || timesToCompleteTry < 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("This is not a valid amount of times to be accomplished");
                         Console.WriteLine("It should be a positive integer");
 
@@ -130,6 +141,7 @@ class Program
                     int.TryParse(stringBonusAmount, out bounsAmountTry);
                     while (bounsAmountTry == 0 || bounsAmountTry < 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("This is not a valid amount of points");
                         Console.WriteLine("It should be a positive integer");
 
@@ -148,6 +160,7 @@ class Program
                 }
                 else if (userInputGoalInt != 1 && userInputGoalInt != 2 && userInputGoalInt != 3 && userInputGoalInt != -12345)
                 {
+                    Console.Clear();
                     Console.WriteLine("This is not a valid option, please try again");
                     Thread.Sleep(2000);
                     Console.Clear();
@@ -160,6 +173,7 @@ class Program
         int userInput = 1;
         while (userInput != 6)
         {
+            Console.Clear();
             Console.WriteLine($"You have {score} points.");
             Console.WriteLine();
             Console.WriteLine("Menu Options:");
@@ -193,6 +207,8 @@ class Program
                     indexToShow += 1;
                     Console.WriteLine($"{indexToShow}.{goal.ToString()}");
                 }
+                Console.WriteLine("Press enter for go to the menu");
+                Console.ReadLine();
             }
             else if(userInput == 3)
             {
