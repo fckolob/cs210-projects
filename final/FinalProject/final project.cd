@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ConsoleApp3.Order">
+    <Position X="1.5" Y="0.5" Width="11.75" />
+    <TypeIdentifier>
+      <HashCode>AhAQAACAAACIAACAAACABEEAABABAAAAAgAAAAAIAAA=</HashCode>
+      <FileName>order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Swinging">
+    <Position X="0.5" Y="6.25" Width="16.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAKAAAAABAAAAAAAAAAAAgAIBEQAIAA=</HashCode>
+      <FileName>Doors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Sliding">
+    <Position X="0.75" Y="10.25" Width="14.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAIAAAAgAACAAAAABAAAAAAAAAAAAgAgAAAAAAA=</HashCode>
+      <FileName>Sliding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.s30Door">
+    <Position X="0.5" Y="13.5" Width="19.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>s30Door.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.ProbbaDoor">
+    <Position X="0.5" Y="17" Width="8.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ProbbaDoor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.ProbbaSwingingWindow">
+    <Position X="0.5" Y="20" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ProbbaSwingingWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.S30SwingingWindow">
+    <Position X="0.5" Y="22.75" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>s30SwingingWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.S20SlidingWindow">
+    <Position X="0.5" Y="26.5" Width="15" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>S20SlidingWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.S25SlidingWindow">
+    <Position X="0.5" Y="29.75" Width="20" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>S20SlidingWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.ProbbaSlidingWindow">
+    <Position X="0.5" Y="32.75" Width="15.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAABAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ProbbaSlidingWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
