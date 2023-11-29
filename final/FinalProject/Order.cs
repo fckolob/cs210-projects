@@ -1,8 +1,105 @@
     public class Order
     {
-        public Order(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh)
+        protected string _nameCustomer
         {
-            throw new System.NotImplementedException();
+            get => default(string);
+            set
+            {
+            }
+        }
+
+        protected int _phoneCustomer
+        {
+            get => default(int);
+            set
+            {
+            }
+        }
+
+        protected double _totalPrice
+        {
+            get => default(double);
+            set
+            {
+            }
+        }
+
+        protected double _amountPaid
+        {
+            get => default(double);
+            set
+            {
+            }
+        }
+
+        protected string _dueDate
+        {
+            get => default(string);
+            set
+            {
+            }
+        }
+
+        protected string _color
+        {
+            get => default(string);
+            set
+            {
+            }
+        }
+
+        protected string _addressCustomer
+        {
+            get => default(string);
+            set
+            {
+            }
+        }
+
+        protected int _widthMm
+        {
+            get => default(int);
+            set
+            {
+            }
+        }
+
+        protected double _heightMm
+        {
+            get => default(double);
+            set
+            {
+            }
+        }
+
+        protected int _glassThickness
+        {
+            get => default(int);
+            set
+            {
+            }
+        }
+
+        protected bool _dvh
+        {
+            get => default(bool);
+            set
+            {
+            }
+        }
+        public Order(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate)
+        {
+            _nameCustomer = nameCustomer;
+            _addressCustomer = addressCustomer;
+            _phoneCustomer = phoneCustomer;
+            _totalPrice = totalPrice;
+            _amountPaid = amountPaid;
+            _widthMm = widthMm;
+            _heightMm = heightMm;
+            _color = color;
+            _glassThickness = glassThickness;
+            _dvh = dvh;
+            _dueDate = dueDate;
         }
 
         public Order(System.String savedString)
@@ -10,93 +107,12 @@
             throw new System.NotImplementedException();
         }
 
-        private string _nameCustomer
+        public double ReaminingAmount()
         {
-            get => default(string);
-            set
-            {
-            }
+            return _totalPrice - _amountPaid;
         }
 
-        private int _phoneNumberCustomer
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
-        private double _totalPrice
-        {
-            get => default(double);
-            set
-            {
-            }
-        }
-
-        private double _amountPaid
-        {
-            get => default(double);
-            set
-            {
-            }
-        }
-
-        private string _dueDate
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
-
-        private string _color
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
-
-        private string _addressCustomer
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
-
-        private int _width
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
-        private double _height
-        {
-            get => default(double);
-            set
-            {
-            }
-        }
-
-        private int _glassThicknessMm
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
-        private bool _dvh
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
+       
 
         public override string ToString()
         {
@@ -116,5 +132,16 @@
         public virtual string AdministrationWorkSheet()
         {
             throw new System.NotImplementedException();
+        }
+        public string GetDvhMessage()
+        {
+            if (_dvh == true)
+            {
+                return "This opening will have DVH glass";
+            }
+            else
+            {
+                return "This opening will have single glass";
+            }
         }
     }
