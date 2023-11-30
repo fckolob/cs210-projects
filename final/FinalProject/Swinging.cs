@@ -48,7 +48,7 @@ public class Swinging : Order
     
     
 
-    public Swinging(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, System.String openingDirection, System.String outOrIn,   System.String design, bool doubleShash,  bool perimeterFrame, bool buriedFrame) : base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate)
+    public Swinging(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String openingDirection, System.String outOrIn,   System.String design, bool doubleShash,  bool perimeterFrame, bool buriedFrame) : base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
     {
         _openingDirection = openingDirection;
         _doubleShash = doubleShash;
@@ -100,24 +100,21 @@ public class Swinging : Order
     {
         
         
-        return $"Type of opening: {this.GetType()} \n Name of the customer: {_nameCustomer} \n Address of the costumer: {_addressCustomer} \n Phone of the costumer: {_phoneCustomer} \n Total price: ${_totalPrice} \n Amount already paid: ${_amountPaid} \n The due date for deliver the opening is {_dueDate} \n Width of the opening in mm: {_widthMm}mm \n Height of the opening in mm: {_heightMm}mm \n Color of the opening: {_color} \n Glass Thickness: {_glassThickness}mm \n {GetDvhMessage()} \n The opening direction of the opening is {_openingDirection} seeing from the outside of the house \n The opening is open {_outOrIn} \n The design of the opening is: {_design} \n {GetDoubleShashMessage()} \n {GetPerimeterFrameMessage()} \n {GetBuriedFrameMessage()}. ";
+        return $"Type of opening: {this.GetType()} \n Name of the customer: {_nameCustomer} \n Address of the costumer: {_addressCustomer} \n Phone of the costumer: {_phoneCustomer} \n Total price: ${_totalPrice} \n Amount already paid: ${_amountPaid} \n The due date for deliver the opening is {_dueDate} \n {GetInstalationIncludedMessage()} \n Width of the opening in mm: {_widthMm}mm \n Height of the opening in mm: {_heightMm}mm \n Color of the opening: {_color} \n Glass Thickness: {_glassThickness}mm \n {GetDvhMessage()} \n The opening direction of the opening is {_openingDirection} seeing from the outside of the house \n The opening is open {_outOrIn} \n The design of the opening is: {_design} \n {GetDoubleShashMessage()} \n {GetPerimeterFrameMessage()} \n {GetBuriedFrameMessage()}. ";
         
         
     }
 
     public override string ToSavedString()
     {
-        return $"{this.GetType()}:{_nameCustomer},{_addressCustomer},{_phoneCustomer.ToString()},{_totalPrice.ToString()},{_amountPaid.ToString()},{_widthMm.ToString()},{_heightMm.ToString()},{_color},{_glassThickness.ToString()},{_dvh.ToString()},{_dueDate},{_openingDirection},{_outOrIn},{_design},{_doubleShash.ToString()},{_perimeterFrame.ToString()},{_buriedFrame.ToString()}";
+        return $"{this.GetType()}:{_nameCustomer},{_addressCustomer},{_phoneCustomer.ToString()},{_totalPrice.ToString()},{_amountPaid.ToString()},{_widthMm.ToString()},{_heightMm.ToString()},{_color},{_glassThickness.ToString()},{_dvh.ToString()},{_dueDate},{_instalationIncluded.ToString()},{_openingDirection},{_outOrIn},{_design},{_doubleShash.ToString()},{_perimeterFrame.ToString()},{_buriedFrame.ToString()}";
     }
 
     public override string ProductionWorkSheet()
     {
         throw new System.NotImplementedException();
     }
-    public override string AdministrationWorkSheet()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
 
 }

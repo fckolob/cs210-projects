@@ -1,4 +1,4 @@
-    public class Order
+    public abstract class Order
     {
         protected string _nameCustomer
         {
@@ -87,7 +87,28 @@
             {
             }
         }
-        public Order(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate)
+        protected bool _instalationIncluded
+        {
+            get => default(bool);
+            set
+            {
+            }
+        }
+        protected bool _delivered
+        {
+            get => default(bool);
+            set
+            {
+            }
+        }
+        protected bool _remainingAmountPaid
+        {
+            get => default(bool);
+            set
+            {
+            }
+        }
+        public Order(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded)
         {
             _nameCustomer = nameCustomer;
             _addressCustomer = addressCustomer;
@@ -100,38 +121,33 @@
             _glassThickness = glassThickness;
             _dvh = dvh;
             _dueDate = dueDate;
+            _instalationIncluded = instalationIncluded;
+            
         }
 
         public Order(System.String savedString)
         {
-            throw new System.NotImplementedException();
+            
         }
 
-        public double ReaminingAmount()
+        public double RemainingAmount()
         {
             return _totalPrice - _amountPaid;
         }
 
        
 
-        public override string ToString()
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
-        public virtual string ToSavedString()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract string ToSavedString();
+        
 
-        public virtual string ProductionWorkSheet()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract string ProductionWorkSheet();
+        
 
-        public virtual string AdministrationWorkSheet()
+        public string AdministrationWorkSheet()
         {
-            throw new System.NotImplementedException();
+            return $"Type of opening: {this.GetType()} \n Name: {_nameCustomer} \n Address: {_addressCustomer} \n Phone number: {_phoneCustomer} \n Total price: ${_totalPrice} \n Amount already paid: ${_amountPaid} \n Remaining amount: ${RemainingAmount()} \n Due date for deliver this opening: {_dueDate} \n {GetInstalationIncludedMessage()}";
         }
         public string GetDvhMessage()
         {
@@ -142,6 +158,39 @@
             else
             {
                 return "This opening will have single glass";
+            }
+        }
+        public string GetInstalationIncludedMessage()
+        {
+            if (_instalationIncluded == true)
+            {
+                return "The instalation is included for this opening";
+            }
+            else
+            {
+                return "The instalation is not included for this opening";
+            }
+        }
+        public string GetDeliveredMessage()
+        {
+            if (_delivered == true)
+            {
+                return "This opening was already delivered";
+            }
+            else
+            {
+                return "This opening is not delivered yet";
+            }
+        }
+        public string GetRemainingAmountPaidMessage()
+        {
+            if (_remainingAmountPaid == true)
+            {
+                return "The remaining amount for this opening was already paid";
+            }
+            else
+            {
+                return "The remaining amount for this opening is not paid yet";
             }
         }
     }
