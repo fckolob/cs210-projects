@@ -140,6 +140,7 @@
         
 
         public abstract string ToSavedString();
+
         
 
         public abstract string ProductionWorkSheet();
@@ -148,6 +149,10 @@
         public string AdministrationWorkSheet()
         {
             return $"Type of opening: {this.GetType()} \n Name: {_nameCustomer} \n Address: {_addressCustomer} \n Phone number: {_phoneCustomer} \n Total price: ${_totalPrice} \n Amount already paid: ${_amountPaid} \n Remaining amount: ${RemainingAmount()} \n Due date for deliver this opening: {_dueDate} \n {GetInstalationIncludedMessage()}";
+        }
+        public string GetName()
+        {
+            return $"Name: {_nameCustomer} Type: {this.GetType()} Measures: width: {_widthMm}mm height: {_heightMm}mm ";
         }
         public string GetDvhMessage()
         {
@@ -192,5 +197,14 @@
             {
                 return "The remaining amount for this opening is not paid yet";
             }
+        }
+        public void RecordEventDelivered()
+        {
+            _delivered = true;
+        }
+        public void RecordEventRemainingAmountPaid()
+        {
+            _remainingAmountPaid = true;
+            _amountPaid = _totalPrice;
         }
     }
