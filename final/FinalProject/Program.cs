@@ -5,6 +5,87 @@ class Program
     static void Main(string[] args)
     {
         List<Order> orders  = new List<Order>();
+        void ShowWorkSheetKinds()
+        {
+            int userInputWorkSheetInt = 1;
+            while (userInputWorkSheetInt != -12345)
+            {
+                Console.Clear();
+                Console.WriteLine("What kind of worksheet do you want to create?");
+                Console.WriteLine("1. Administration worksheet");
+                Console.WriteLine("2. Production worksheet");
+                Console.WriteLine("Select a choice from the menu");
+                string userInputWorkSheetString = Console.ReadLine();
+                int.TryParse(userInputWorkSheetString, out userInputWorkSheetInt);
+                if (userInputWorkSheetInt == 1)
+                {
+                    int indexToShow = 0;
+                    Console.WriteLine("The orders are:");
+                    Console.WriteLine();
+                
+                    foreach (Order order in orders)
+                    {
+                        indexToShow += 1;
+                        Console.WriteLine($"{indexToShow}.{order.GetName()}");
+                    }
+                    Console.WriteLine("For wich order do you want to create the worksheet?");
+                    int selected = int.Parse(Console.ReadLine());
+                    indexToShow = 0;
+                    foreach (Order order in orders)
+                    {
+                        indexToShow += 1;
+                        if (indexToShow == selected)
+                        {
+                        
+                            Console.WriteLine(order.AdministrationWorkSheet());
+                        }
+                    
+                    }
+                    Console.WriteLine("Press Enter for return to the menu.");
+                    Console.ReadLine();
+                    userInputWorkSheetInt = -12345;
+
+                }
+                else if (userInputWorkSheetInt == 2)
+                {
+                    int indexToShow = 0;
+                    Console.WriteLine("The orders are:");
+                    Console.WriteLine();
+                
+                    foreach (Order order in orders)
+                    {
+                        indexToShow += 1;
+                        Console.WriteLine($"{indexToShow}.{order.GetName()}");
+                    }
+                    Console.WriteLine("For wich order do you want to create the worksheet?");
+                    int selected = int.Parse(Console.ReadLine());
+                    indexToShow = 0;
+                    foreach (Order order in orders)
+                    {
+                        indexToShow += 1;
+                        if (indexToShow == selected)
+                        {
+                        
+                            Console.WriteLine(order.ProductionWorkSheet());
+                        }
+                    
+                    }
+                    Console.WriteLine("Press Enter for return to the menu.");
+                    Console.ReadLine();
+                    userInputWorkSheetInt = -12345;
+                }
+
+                else if (userInputWorkSheetInt != 1 && userInputWorkSheetInt != 2  && userInputWorkSheetInt != -12345)
+                {
+                    Console.Clear();
+                    Console.WriteLine("This is not a valid option, please try again");
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                }
+                
+
+            }
+        }
         void ShowEventKinds()
         {
             int userInputRecordInt = 1;
@@ -50,7 +131,7 @@ class Program
                 }
                 else if (userInputRecordInt == 2)
                 {
-                     int indexToShow = 0;
+                    int indexToShow = 0;
                     Console.WriteLine("The orders are:");
                     Console.WriteLine();
                 
@@ -93,7 +174,7 @@ class Program
             while (userInputSwingingOpeningInt != -12345)
             {
 
-            
+                Console.Clear();
                 Console.WriteLine("What kind of swinging opening do you want to order?");
                 Console.WriteLine("1. S-30 swinging Door");
                 Console.WriteLine("2. S-30 swinging window");
@@ -152,7 +233,7 @@ class Program
                     Console.WriteLine("What is the glass thickness for this opening in mm?");
                     int glassThickness = int.Parse(Console.ReadLine());
                     Console.Clear();
-                    Console.WriteLine("What is the glass thickness for this opening in mm?");
+                    
                     Console.Clear();
                     Console.WriteLine("Will this opening have DVH glass? (yes/no)");
                     bool dvh;
@@ -210,6 +291,8 @@ class Program
                     }
                     S30Door s30door1 = new S30Door(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame );
                     orders.Add(s30door1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSwingingOpeningInt = -12345;
                 }
                 else if (userInputSwingingOpeningInt == 2)
@@ -260,8 +343,7 @@ class Program
                     Console.Clear();
                     Console.WriteLine("What is the glass thickness for this opening in mm?");
                     int glassThickness = int.Parse(Console.ReadLine());
-                    Console.Clear();
-                    Console.WriteLine("What is the glass thickness for this opening in mm?");
+                    
                     Console.Clear();
                     Console.WriteLine("Will this opening have DVH glass? (yes/no)");
                     bool dvh;
@@ -319,6 +401,8 @@ class Program
                     }
                     S30SwingingWindow s30SwingingWindow1 = new S30SwingingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
                     orders.Add(s30SwingingWindow1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSwingingOpeningInt = -12345;
 
                 }
@@ -370,8 +454,7 @@ class Program
                     Console.Clear();
                     Console.WriteLine("What is the glass thickness for this opening in mm?");
                     int glassThickness = int.Parse(Console.ReadLine());
-                    Console.Clear();
-                    Console.WriteLine("What is the glass thickness for this opening in mm?");
+                    
                     Console.Clear();
                     Console.WriteLine("Will this opening have DVH glass? (yes/no)");
                     bool dvh;
@@ -429,6 +512,8 @@ class Program
                     }
                     ProbbaDoor probbaDoor1 = new ProbbaDoor(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
                     orders.Add(probbaDoor1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSwingingOpeningInt = -12345;
                 }
                 else if (userInputSwingingOpeningInt == 4)
@@ -479,8 +564,7 @@ class Program
                     Console.Clear();
                     Console.WriteLine("What is the glass thickness for this opening in mm?");
                     int glassThickness = int.Parse(Console.ReadLine());
-                    Console.Clear();
-                    Console.WriteLine("What is the glass thickness for this opening in mm?");
+                    
                     Console.Clear();
                     Console.WriteLine("Will this opening have DVH glass? (yes/no)");
                     bool dvh;
@@ -538,6 +622,8 @@ class Program
                     }
                     ProbbaSwingingWindow probbaSwingingWindow1 = new ProbbaSwingingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
                     orders.Add(probbaSwingingWindow1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSwingingOpeningInt = -12345; 
                 }
                 else if (userInputSwingingOpeningInt != 1 && userInputSwingingOpeningInt != 2 && userInputSwingingOpeningInt != 3 && userInputSwingingOpeningInt != 4 && userInputSwingingOpeningInt != -12345)
@@ -659,6 +745,8 @@ class Program
                     S20SlidingWindow s20SlidingWindow1 = new S20SlidingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
                     
                     orders.Add(s20SlidingWindow1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSlidingOpeningInt = -12345;
                 }
                 else if (userInputSlidingOpeningInt == 2)
@@ -755,6 +843,8 @@ class Program
                     S25SlidingWindow s25SlidingWindow1 = new S25SlidingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
                     
                     orders.Add(s25SlidingWindow1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSlidingOpeningInt = -12345;
                 }
                 else if (userInputSlidingOpeningInt == 3)
@@ -851,6 +941,8 @@ class Program
                     ProbbaSlidingWindow probbaSlidingWindow1 = new ProbbaSlidingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
                     
                     orders.Add(probbaSlidingWindow1);
+                    Console.WriteLine("Your order was created");
+                    Thread.Sleep(2000);
                     userInputSlidingOpeningInt = -12345;
                 }
                 
@@ -869,7 +961,7 @@ class Program
             while (userInputOrderInt != -12345)
             {
                 Console.Clear();
-                Console.WriteLine("What kind of goal do you want to create?");
+                Console.WriteLine("What kind of order do you want to create?");
                 Console.WriteLine("1.Order for a Swinging opening");
                 Console.WriteLine("2.Order for a Sliding opening");
                 
@@ -887,6 +979,7 @@ class Program
                 else if (userInputOrderInt == 2)
                 {
                    ShowSlidingOpeningKinds();
+                   userInputOrderInt = -12345;
                 }
                
                 else if (userInputOrderInt != 1 && userInputOrderInt != 2 && userInputOrderInt != 3 && userInputOrderInt != -12345)
@@ -903,7 +996,7 @@ class Program
         Console.WriteLine();
         Thread.Sleep(2000);
         int userInput = 1;
-        while (userInput != 6)
+        while (userInput != 7)
         {
             Console.Clear();
             
@@ -914,7 +1007,8 @@ class Program
             Console.WriteLine("3. Save Orders");
             Console.WriteLine("4. Load Orders");
             Console.WriteLine("5. Record Event");
-            Console.WriteLine("6. Quit");
+            Console.WriteLine("6. Create worksheet");
+            Console.WriteLine("7. Quit");
             Console.Write("Select a choice from the menu: ");
             string stringUserInput = Console.ReadLine();
             int.TryParse(stringUserInput, out userInput);
@@ -938,8 +1032,9 @@ class Program
                 {
                     indexToShow += 1;
                     Console.WriteLine($"{indexToShow}.{order.ToString()}");
+                    Console.WriteLine("------------------------------------------------------------------------");
                 }
-                Console.WriteLine("Press enter for go to the menu");
+                Console.WriteLine("Press enter for return to the menu");
                 Console.ReadLine();
             }
             else if(userInput == 3)
@@ -978,6 +1073,11 @@ class Program
                             orders.Add(s30Door1);
                         
                         }
+                        else if (orderType == "ProbbaDoor")
+                        {
+                            ProbbaDoor probbaDoor1 = new ProbbaDoor(content);
+                            orders.Add(probbaDoor1);
+                        }
                         else if(orderType == "S30SwingingWindow")
                         {
                             S30SwingingWindow s30SwingingWindow1 = new S30SwingingWindow(content);
@@ -993,10 +1093,15 @@ class Program
                             S20SlidingWindow s20SlidingWindow1 = new S20SlidingWindow(content);
                             orders.Add(s20SlidingWindow1);
                         }
-                         else if(orderType == "S25SlidingWindow")
+                        else if(orderType == "S25SlidingWindow")
                         {
                             S25SlidingWindow s25SlidingWindow1 = new S25SlidingWindow(content);
                             orders.Add(s25SlidingWindow1);
+                        }
+                        else if(orderType == "ProbbaSlidingWindow")
+                        {
+                            ProbbaSlidingWindow probbaSlidingWindow1 = new ProbbaSlidingWindow(content);
+                            orders.Add(probbaSlidingWindow1);
                         }
                         
                         
@@ -1012,6 +1117,7 @@ class Program
                     {
                         indexToShow += 1;
                         Console.WriteLine($"{indexToShow}.{order.ToString()}");
+                        Console.WriteLine("------------------------------------------------------------------------");
                     }
                 Console.WriteLine("Press enter for go to the menu");
                 Console.ReadLine();
@@ -1020,8 +1126,12 @@ class Program
             {
                 ShowEventKinds();
             }
+            else if (userInput == 6)
+            {
+                ShowWorkSheetKinds();
+            }
             
-            else if (userInput != 6 && userInput != 5 && userInput != 4 && userInput != 3 && userInput != 2 && userInput != 1)
+            else if (userInput != 7 && userInput != 6 && userInput != 5 && userInput != 4 && userInput != 3 && userInput != 2 && userInput != 1)
             {
                 Console.WriteLine("This is not a valid option, please try again");
                 Thread.Sleep(2000);

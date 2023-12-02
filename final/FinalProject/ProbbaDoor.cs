@@ -11,12 +11,86 @@ public class ProbbaDoor : Swinging
     {
 
     }
-    
-
-    public override string ProductionWorkSheet()
+    public override int GetVerticalShashFrame()
     {
-        throw new System.NotImplementedException();
+        if (_perimeterFrame == true)
+        {
+            return _heightMm - 48;
+        }
+        else
+        {
+            return _heightMm -34;
+        }
     }
+    public override int GetHorizontalShashFrame()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 26;
+        }
+        else
+        {
+            return _widthMm - 48;
+        }
+    }
+    public override int GetHorizontalGlazingBead()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 162;
+        }
+        else
+        {
+            return _widthMm - 184;
+        }
+    }
+    public override int GetVerticalGlazingBead()
+    {
+        if (_perimeterFrame == true)
+        {
+            return _heightMm - 218;
+        }
+        else
+        {
+            return _heightMm - 204;
+        }
+    }
+    public override int GetGlassWidth()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 176;
+        }
+        else
+        {
+            return _widthMm - 198;
+        }
+    }
+    public override int GetGlassHeight()
+    {
+        if (_perimeterFrame == true)
+        {
+            return _heightMm - 198;
+        }
+        else
+        {
+            return _heightMm - 184;
+        }
+    }
+    public override int GetOpaquePanel()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 164;
+        }
+        else
+        {
+            return _widthMm - 186;
+        }
+    }
+
+
+    
 
     
 }

@@ -15,8 +15,71 @@
     {
         
     }
-    public override string ProductionWorkSheet()
+    public override int GetHorizontalFrame()
     {
-        throw new System.NotImplementedException();
+        return _widthMm - 51;
+    }
+    public override int GetVerticalShashFrame()
+    {
+        return _heightMm - 48;
+    }
+    public override int GetHorizontalShashFrame()
+    {
+        if (_threeShashes == true)
+        {
+            return _widthMm / 3 - 77;
+
+        }
+        else
+        {
+            return _widthMm / 2 - 96;
+        }
+        
+    }
+    public override int GetGlassWidth()
+    {
+        if (_dvh == true && _threeShashes == false)
+        {
+            return _widthMm / 2 - 111;
+        }
+        if (_dvh == false && _threeShashes == false)
+        {
+            return _widthMm / 2 - 80;
+        }
+        if (_dvh == true && _threeShashes == true)
+        {
+            return _widthMm / 3 - 91;
+        }
+        if (_dvh == false && _threeShashes == true)
+        {
+            return _widthMm / 3 - 60;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public override int GetGlassHeight()
+    {
+        if (_dvh == true)
+        {
+            return _heightMm - 168;
+        }
+        else
+        {
+            return _heightMm - 137;
+        }
+    }
+    public override int GetScreenWidth()
+    {
+        return _widthMm / 2 + 10;
+    }
+    public override int GetScreenHeight()
+    {
+        return _heightMm - 40;
+    }
+    public override int GetScreenGuides()
+    {
+        return _widthMm - 5;
     }
  }

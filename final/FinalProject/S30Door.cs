@@ -12,12 +12,87 @@ public class S30Door : Swinging
     {
         
     }
-    
-
-    public override string ProductionWorkSheet()
+    public override int GetVerticalShashFrame()
     {
-        throw new System.NotImplementedException();
+        if (_perimeterFrame == true)
+        {
+            return _heightMm - 66;
+        }
+        else
+        {
+            return _heightMm - 38;
+        }
     }
+    public override int GetHorizontalShashFrame()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 145;
+        }
+        else
+        {
+            return _widthMm - 176;
+
+        }
+    }
+    public override int GetHorizontalGlazingBead()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 146;
+
+        }
+        else
+        {
+            return _widthMm - 177;
+        }
+    }
+    public override int GetVerticalGlazingBead()
+    {
+        if (_perimeterFrame == true)
+        {
+            return _heightMm - 266;
+        }
+        else
+        {
+            return _heightMm - 238;
+        }
+    }
+    public override int GetGlassWidth()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 150;
+        }
+        else
+        {
+            return _widthMm - 181;
+        }
+    }
+    public override int GetGlassHeight()
+    {
+        if (_perimeterFrame == true)
+        {
+            return _heightMm - 241;
+        }
+        else
+        {
+            return _heightMm - 213;
+        }
+    }
+    public override int GetOpaquePanel()
+    {
+        if (_doubleShash == true)
+        {
+            return _widthMm / 2 - 148;
+        }
+        else
+        {
+            return _widthMm - 179;
+        }
+    }
+
+    
 
     
 }

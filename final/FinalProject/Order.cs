@@ -64,9 +64,9 @@
             }
         }
 
-        protected double _heightMm
+        protected int _heightMm
         {
-            get => default(double);
+            get => default(int);
             set
             {
             }
@@ -135,11 +135,14 @@
             return _totalPrice - _amountPaid;
         }
 
-       
 
-        
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 
-        public abstract string ToSavedString();
+
+    public abstract string ToSavedString();
 
         
 

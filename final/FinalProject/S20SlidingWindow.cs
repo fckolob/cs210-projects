@@ -13,11 +13,38 @@ public class S20SlidingWindow : Sliding
     }
     
 
-    public override string ProductionWorkSheet()
+    public override int GetHorizontalFrame()
     {
-        throw new System.NotImplementedException();
+        return _widthMm - 25;
     }
-
+    public override int GetVerticalShashFrame()
+    {
+        return _heightMm - 48;
+    }
+    public override int GetHorizontalShashFrame()
+    {
+        return _widthMm / 2 - 74;
+    }
+    public override int GetGlassWidth()
+    {
+        return _widthMm / 2 - 58;
+    }
+    public override int GetGlassHeight()
+    {
+        return _heightMm - 112;
+    }
+    public override int GetScreenWidth()
+    {
+        return _widthMm / 2 + 10;
+    }
+    public override int GetScreenHeight()
+    {
+        return _heightMm - 30;
+    }
+    public override int GetScreenGuides()
+    {
+        return _widthMm - 27;
+    }
     
 
 }
