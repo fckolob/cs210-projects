@@ -11,7 +11,7 @@
         
     }
 
-    public S25SlidingWindow(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh,string dueDate, bool instalationIncluded, System.String closerType, bool threeShashes, bool bearingWheels): base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels)
+    public S25SlidingWindow(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh,string dueDate, bool instalationIncluded, System.String closerType, bool threeShashes, bool bearingWheels): base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels)
     {
         
     }
@@ -82,4 +82,9 @@
     {
         return _widthMm - 5;
     }
+    public override string ProductionWorkSheet()
+    {
+        return $"Opening Type: {this.GetType()} \n Total width: {_widthMm}mm. \n Total height: {_heightMm}mm. \n Horizontal Frame lenght: {GetHorizontalFrame()}mm \n Vertical Frame lenght: {_heightMm}mm \n Vertical Sash Frame lenght: {GetVerticalShashFrame} \n Horizontal Shash Frame lenght: {GetHorizontalShashFrame()}mm \n Screen Width: {GetScreenWidth()}mm \n Screen Height: {GetScreenHeight()}mm \n Screen Guides: {GetScreenGuides()}mm \n Glass Width: {GetGlassWidth()}mm \n Glass Height: {GetGlassHeight()}mm \n {GetThreeShashesMessage()} \n {GetBearingWheelsMessage()} \n The Closer Type for this opening is: {_closerType} ";
+    }
+   
  }

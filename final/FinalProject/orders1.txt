@@ -1,0 +1,1 @@
+S30Door:a,a,3,1000,500,1000,1200,green,4,True,12/4/89,True,left,out,mid,True,True,False,False,False

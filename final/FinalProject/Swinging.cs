@@ -2,53 +2,21 @@ using System.Dynamic;
 
 public  class Swinging : Order
 {
-    protected string _openingDirection
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
-    protected string _outOrIn
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
-    protected string _design
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
-    protected bool _doubleShash
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-    protected bool _perimeterFrame
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-    protected bool _buriedFrame
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-    
+    protected string _openingDirection;
+        
+    protected string _outOrIn;
+        
+    protected string _design;
+        
+    protected bool _doubleShash;
+
+    protected bool _perimeterFrame;
+    protected bool _buriedFrame;
+        
     
     
 
-    public Swinging(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String openingDirection, System.String outOrIn,   System.String design, bool doubleShash,  bool perimeterFrame, bool buriedFrame) : base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
+    public Swinging(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String openingDirection, System.String outOrIn,   System.String design, bool doubleShash,  bool perimeterFrame, bool buriedFrame) : base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
     {
         _openingDirection = openingDirection;
         _doubleShash = doubleShash;
@@ -63,7 +31,7 @@ public  class Swinging : Order
         string [] parts = savedString.Split(",");
         _nameCustomer = parts[0];
         _addressCustomer = parts[1];
-        _phoneCustomer = int.Parse(parts[2]);
+        _phoneCustomer = long.Parse(parts[2]);
         _totalPrice = double.Parse(parts[3]);
         _amountPaid = double.Parse(parts[4]);
         _widthMm = int.Parse(parts[5]);
@@ -173,7 +141,7 @@ public  class Swinging : Order
 
     public override string ProductionWorkSheet()
     {
-        return $"Opening Type: {this.GetType()} \n Total width: {_widthMm}mm. \n Total height: {_heightMm}mm. \n Horizontal Frame lenght: {_widthMm}mm \n Vertical Frame lenght: {GetBuriedFrameLenght()}mm \n Vertical Sash Frame lenght: {GetVerticalShashFrame} \n Horizontal Shash Frame lenght: {GetHorizontalShashFrame()}mm \n Horizontal Glazing Bead lenght: {GetHorizontalGlazingBead()}mm \n Vertical Glazing Bead: {GetVerticalGlazingBead()}mm \n Glass Width: {GetGlassWidth()}mm \n Glass Height: {GetGlassHeight()}mm \n Opaque panel lenght: {GetOpaquePanel()}mm \n {GetDvhMessage()} \n {GetDoubleShashMessage()} \n {GetBuriedFrameMessage} \n The design for this opening: {_design}";
+       return "";
     }
     
 

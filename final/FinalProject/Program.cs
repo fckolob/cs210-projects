@@ -194,7 +194,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -305,7 +305,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -416,7 +416,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -526,7 +526,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -661,7 +661,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -727,7 +727,7 @@ class Program
                         threeShashes = false;
                     }
                     Console.Clear();
-                    Console.WriteLine("Is this opening a three shashes opening? (yes/no)");
+                    Console.WriteLine("Will this opening has bearing wheels? (yes/no)");
                     bool bearingWheels;
                     string bearingWheelsOption = Console.ReadLine
                     ().ToLower();
@@ -759,7 +759,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -825,7 +825,7 @@ class Program
                         threeShashes = false;
                     }
                     Console.Clear();
-                    Console.WriteLine("Is this opening a three shashes opening? (yes/no)");
+                    Console.WriteLine("Will this opening has bearing wheels? (yes/no)");
                     bool bearingWheels;
                     string bearingWheelsOption = Console.ReadLine
                     ().ToLower();
@@ -857,7 +857,7 @@ class Program
                     string addressCustomer = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("What is the customer's phone number?");
-                    int phoneCustomer = int.Parse(Console.ReadLine());
+                    long phoneCustomer = long.Parse(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("What is the total price of the opening in dollars?");
                     double totalPrice = double.Parse(Console.ReadLine());
@@ -923,7 +923,7 @@ class Program
                         threeShashes = false;
                     }
                     Console.Clear();
-                    Console.WriteLine("Is this opening a three shashes opening? (yes/no)");
+                    Console.WriteLine("Will this opening has bearing wheels? (yes/no)");
                     bool bearingWheels;
                     string bearingWheelsOption = Console.ReadLine
                     ().ToLower();
@@ -1026,6 +1026,7 @@ class Program
 
             else if (userInput == 2)
             {
+                Console.Clear();
                 int indexToShow = 0;
                 
                 foreach (Order order in orders)
@@ -1049,10 +1050,12 @@ class Program
                         outputFile.WriteLine(order.ToSavedString());
                     }
                 }
+                Console.WriteLine($"Your orders were saved as {fileName}");
+                Thread.Sleep(2000);
             }
             else if (userInput == 4)
             {
-                
+                Console.Clear();
                 orders.Clear();
                 Console.WriteLine("What is the filename for the orders file");
                 string fileName = Console.ReadLine();

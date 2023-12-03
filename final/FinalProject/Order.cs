@@ -1,114 +1,34 @@
     public abstract class Order
     {
-        protected string _nameCustomer
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
+        protected string _nameCustomer;
+        
 
-        protected int _phoneCustomer
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
+        protected long _phoneCustomer;
 
-        protected double _totalPrice
-        {
-            get => default(double);
-            set
-            {
-            }
-        }
+        protected double _totalPrice;
 
-        protected double _amountPaid
-        {
-            get => default(double);
-            set
-            {
-            }
-        }
+        protected double _amountPaid;
 
-        protected string _dueDate
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
+        protected string _dueDate;
 
-        protected string _color
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
+        protected string _color;
 
-        protected string _addressCustomer
-        {
-            get => default(string);
-            set
-            {
-            }
-        }
+        protected string _addressCustomer;
 
-        protected int _widthMm
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
+        protected int _widthMm;
 
-        protected int _heightMm
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
+        protected int _heightMm;
 
-        protected int _glassThickness
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
+        protected int _glassThickness;
+        
 
-        protected bool _dvh
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-        protected bool _instalationIncluded
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-        protected bool _delivered
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-        protected bool _remainingAmountPaid
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-        public Order(System.String nameCustomer, System.String addressCustomer, int phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded)
+        protected bool _dvh;
+        protected bool _instalationIncluded;
+        
+        protected bool _delivered;
+        protected bool _remainingAmountPaid;
+        
+        public Order(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded)
         {
             _nameCustomer = nameCustomer;
             _addressCustomer = addressCustomer;
@@ -157,7 +77,7 @@
         {
             return $"Name: {_nameCustomer} Type: {this.GetType()} Measures: width: {_widthMm}mm height: {_heightMm}mm ";
         }
-        public string GetDvhMessage()
+        public virtual string GetDvhMessage()
         {
             if (_dvh == true)
             {
