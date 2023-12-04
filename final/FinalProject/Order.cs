@@ -71,7 +71,7 @@
 
         public string AdministrationWorkSheet()
         {
-            return $"Type of opening: {this.GetType()} \n Name: {_nameCustomer} \n Address: {_addressCustomer} \n Phone number: {_phoneCustomer} \n Total price: ${_totalPrice} \n Amount already paid: ${_amountPaid} \n Remaining amount: ${RemainingAmount()} \n Due date for deliver this opening: {_dueDate} \n {GetInstalationIncludedMessage()}";
+            return $"Type of opening: {this.GetType()} \n Name: {_nameCustomer} \n Address: {_addressCustomer} \n Phone number: {_phoneCustomer} \n Total price: ${_totalPrice} \n Amount already paid: ${_amountPaid} \n Remaining amount: ${RemainingAmount()} \n Due date for deliver this opening: {_dueDate} \n {GetInstalationIncludedMessage()} \n {GetDeliveredMessage()} \n {GetRemainingAmountPaidMessage()}";
         }
         public string GetName()
         {
