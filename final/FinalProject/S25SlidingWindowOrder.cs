@@ -1,4 +1,4 @@
- public class S25SlidingWindow : Sliding
+ public class S25SlidingWindowOrder : SlidingOrder
  {
 
      
@@ -6,12 +6,12 @@
     
 
     
-    public S25SlidingWindow(System.String savedString): base(savedString)
+    public S25SlidingWindowOrder(System.String savedString): base(savedString)
     {
         
     }
 
-    public S25SlidingWindow(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh,string dueDate, bool instalationIncluded, System.String closerType, bool threeShashes, bool bearingWheels): base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels)
+    public S25SlidingWindowOrder(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh,string dueDate, bool instalationIncluded, System.String closerType, bool threeShashes, bool bearingWheels): base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels)
     {
         
     }

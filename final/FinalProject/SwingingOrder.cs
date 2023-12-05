@@ -1,6 +1,6 @@
 using System.Dynamic;
 
-public  class Swinging : Order
+public  class SwingingOrder : Order
 {
     protected string _openingDirection;
         
@@ -16,7 +16,7 @@ public  class Swinging : Order
     
     
 
-    public Swinging(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String openingDirection, System.String outOrIn,   System.String design, bool doubleShash,  bool perimeterFrame, bool buriedFrame) : base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
+    public SwingingOrder(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String openingDirection, System.String outOrIn,   System.String design, bool doubleShash,  bool perimeterFrame, bool buriedFrame) : base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
     {
         _openingDirection = openingDirection;
         _doubleShash = doubleShash;
@@ -26,7 +26,7 @@ public  class Swinging : Order
         _buriedFrame = buriedFrame;
     }
 
-    public Swinging(System.String savedString) : base(savedString)
+    public SwingingOrder(System.String savedString) : base(savedString)
     {
         string [] parts = savedString.Split(",");
         _nameCustomer = parts[0];

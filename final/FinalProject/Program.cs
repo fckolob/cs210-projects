@@ -289,7 +289,7 @@ class Program
                     {
                         buriedFrame = false;
                     }
-                    S30Door s30door1 = new S30Door(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame );
+                    S30DoorOrder s30door1 = new S30DoorOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame );
                     orders.Add(s30door1);
                     Console.WriteLine("Your order was created");
                     Thread.Sleep(2000);
@@ -399,7 +399,7 @@ class Program
                     {
                         buriedFrame = false;
                     }
-                    S30SwingingWindow s30SwingingWindow1 = new S30SwingingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
+                    S30SwingingWindowOrder s30SwingingWindow1 = new S30SwingingWindowOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
                     orders.Add(s30SwingingWindow1);
                     Console.WriteLine("Your order was created");
                     Thread.Sleep(2000);
@@ -510,7 +510,7 @@ class Program
                     {
                         buriedFrame = false;
                     }
-                    ProbbaDoor probbaDoor1 = new ProbbaDoor(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
+                    ProbbaDoorOrder probbaDoor1 = new ProbbaDoorOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
                     orders.Add(probbaDoor1);
                     Console.WriteLine("Your order was created");
                     Thread.Sleep(2000);
@@ -620,7 +620,7 @@ class Program
                     {
                         buriedFrame = false;
                     }
-                    ProbbaSwingingWindow probbaSwingingWindow1 = new ProbbaSwingingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
+                    ProbbaSwingingWindowOrder probbaSwingingWindow1 = new ProbbaSwingingWindowOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice,amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, openingDirection, outOrIn, design, doubleShash, perimeterFrame, buriedFrame);
                     orders.Add(probbaSwingingWindow1);
                     Console.WriteLine("Your order was created");
                     Thread.Sleep(2000);
@@ -742,7 +742,7 @@ class Program
 
 
 
-                    S20SlidingWindow s20SlidingWindow1 = new S20SlidingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
+                    S20SlidingWindowOrder s20SlidingWindow1 = new S20SlidingWindowOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
                     
                     orders.Add(s20SlidingWindow1);
                     Console.WriteLine("Your order was created");
@@ -840,7 +840,7 @@ class Program
 
 
 
-                    S25SlidingWindow s25SlidingWindow1 = new S25SlidingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
+                    S25SlidingWindowOrder s25SlidingWindow1 = new S25SlidingWindowOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
                     
                     orders.Add(s25SlidingWindow1);
                     Console.WriteLine("Your order was created");
@@ -938,7 +938,7 @@ class Program
 
 
 
-                    ProbbaSlidingWindow probbaSlidingWindow1 = new ProbbaSlidingWindow(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
+                    ProbbaSlidingWindowOrder probbaSlidingWindow1 = new ProbbaSlidingWindowOrder(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm, color, glassThickness, dvh, dueDate, instalationIncluded, closerType, threeShashes, bearingWheels);
                     
                     orders.Add(probbaSlidingWindow1);
                     Console.WriteLine("Your order was created");
@@ -1072,38 +1072,38 @@ class Program
                         string content = lineParts[1];
                         if (orderType == "S30Door")
                         {
-                            S30Door s30Door1 = new S30Door(content);
+                            S30DoorOrder s30Door1 = new S30DoorOrder(content);
                             orders.Add(s30Door1);
                         
                         }
                         else if (orderType == "ProbbaDoor")
                         {
-                            ProbbaDoor probbaDoor1 = new ProbbaDoor(content);
+                            ProbbaDoorOrder probbaDoor1 = new ProbbaDoorOrder(content);
                             orders.Add(probbaDoor1);
                         }
                         else if(orderType == "S30SwingingWindow")
                         {
-                            S30SwingingWindow s30SwingingWindow1 = new S30SwingingWindow(content);
+                            S30SwingingWindowOrder s30SwingingWindow1 = new S30SwingingWindowOrder(content);
                             orders.Add(s30SwingingWindow1);
                         }
                         else if(orderType == "ProbbaSwingingWindow")
                         {
-                            ProbbaSwingingWindow probbaSwingingWindow1 = new ProbbaSwingingWindow(content);
+                            ProbbaSwingingWindowOrder probbaSwingingWindow1 = new ProbbaSwingingWindowOrder(content);
                             orders.Add(probbaSwingingWindow1);
                         }
                         else if(orderType == "S20SlidingWindow")
                         {
-                            S20SlidingWindow s20SlidingWindow1 = new S20SlidingWindow(content);
+                            S20SlidingWindowOrder s20SlidingWindow1 = new S20SlidingWindowOrder(content);
                             orders.Add(s20SlidingWindow1);
                         }
                         else if(orderType == "S25SlidingWindow")
                         {
-                            S25SlidingWindow s25SlidingWindow1 = new S25SlidingWindow(content);
+                            S25SlidingWindowOrder s25SlidingWindow1 = new S25SlidingWindowOrder(content);
                             orders.Add(s25SlidingWindow1);
                         }
                         else if(orderType == "ProbbaSlidingWindow")
                         {
-                            ProbbaSlidingWindow probbaSlidingWindow1 = new ProbbaSlidingWindow(content);
+                            ProbbaSlidingWindowOrder probbaSlidingWindow1 = new ProbbaSlidingWindowOrder(content);
                             orders.Add(probbaSlidingWindow1);
                         }
                         

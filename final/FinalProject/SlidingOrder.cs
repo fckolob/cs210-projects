@@ -1,4 +1,4 @@
-public class Sliding : Order
+public class SlidingOrder : Order
 {
     protected string _closerType;
     
@@ -10,14 +10,14 @@ public class Sliding : Order
 
     
 
-    public Sliding(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String closerType, bool threeShashes, bool bearingWheels) :base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
+    public SlidingOrder(System.String nameCustomer, System.String addressCustomer, long phoneCustomer, double totalPrice, double amountPaid, int widthMm, int heightMm, System.String color, int glassThickness, bool dvh, string dueDate, bool instalationIncluded, System.String closerType, bool threeShashes, bool bearingWheels) :base(nameCustomer, addressCustomer, phoneCustomer, totalPrice, amountPaid, widthMm, heightMm,  color, glassThickness, dvh, dueDate, instalationIncluded)
     {
         _closerType = closerType;
         _threeShashes = threeShashes;
         _bearingWheels = bearingWheels;
     }
 
-    public Sliding(System.String savedString): base(savedString)
+    public SlidingOrder(System.String savedString): base(savedString)
     {
         string[] parts = savedString.Split(",");
         _nameCustomer = parts[0];
