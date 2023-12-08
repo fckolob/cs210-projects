@@ -1,7 +1,12 @@
 using System.Dynamic;
 
+// SMT alhtough you could say a SwingingOrder is an Order, it seems like this is more of a type of item that could be order that
+// would be managed by an ORder
 public  class SwingingOrder : Order
 {
+    // SMT these attibutes descibe more about an item of an Order rather than an Order. I really don't see a reason to subclass orders
+    // What I would do is create a base class of Window and then subclass window into all your Window classes. Have Order manage a List<Window>
+    // and Customer.
     protected string _openingDirection;
         
     protected string _outOrIn;

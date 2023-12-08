@@ -4,10 +4,8 @@ public class Order
     private Customer _customer;
     public Order(List<Product> products, Customer customer)
     {
-        foreach (Product product in products)
-        {
-            _products.Add(product);
-        }
+        _products = products;
+        
         _customer = customer;
     }
     public Customer GetCustomer()
@@ -44,9 +42,9 @@ public class Order
         }
         return packingLabel;
     }
-    public string ShipingLabel()
+    public string ShippingLabel()
     {
-        return $"Customer's name: {_customer.GetName()} \n Customer's Address: {_customer.GetAddress()}";
+        return $"Customer's name: {_customer.GetName()} \nCustomer's Address: {_customer.GetAddress()} \n";
         
     }
 }
