@@ -7,7 +7,7 @@ public class SwimingInTheLapPool: Activity
     }
     public override double GetDistance()
     {
-        return  _laps * 50 / 1000;
+        return  _laps * 0.05;
     }
     public override double GetSpeed()
     {
